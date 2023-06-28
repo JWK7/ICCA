@@ -1,0 +1,178 @@
+<mujoco model="HandV3">
+  <compiler angle="radian" coordinate="local" inertiafromgeom="true" settotalmass="14"/>
+  <option timestep="0.01" gravity="0 0 0" iterations="20" integrator="Euler"/>
+  <default>
+    <joint armature='0.04' damping="0.1" limited="true"/>
+    <geom friction=".0 .0 .0" density="300" margin="0.002" condim="1" contype="0" conaffinity="0"/>
+  </default>
+
+
+  <worldbody>
+    <light diffuse=".5 .5 .5" pos="0 0 3" dir="0 0 -1"/>
+    <body name="hand" pos="0 0 0">
+      <geom name="arm" type="cylinder" fromto="0 -1 0 0 1 0" size="1"/>
+      <!-- <joint name="armJoint" type="hinge" pos="0 0 0" axis="0 1 0" range="-2.2854 1.714602" damping="1.0" /> -->
+      <body name="innerHand" pos="0 1 0">
+
+        <geom name="wrist" type="sphere" rgba="0.6 0.6 0.6 1" pos="0 0 0" size="0.75"/>
+        <geom name="palm" type="ellipsoid" pos="0 1 0"  size="1.5 2 0.75"/>
+        <!-- <joint name="wrist" type="hinge" pos="0 0 0" limited="true" axis="1 0 0" damping="0.1" range="-1.5 1.5"/> -->
+
+        <body name="thumb" pos="1.35 0.75 0">
+
+          <geom name="thumbKnuckle" type="sphere" rgba="0.6 0.6 0.6 1" pos="0 0 0" size="0.3"/>
+          <geom name="thumbKnuckleLimb" type="ellipsoid" size="0.3 0.5 0.3" fromto="0 0 0 0 1 0"/>
+          <joint name="thumbKnuckleJoint1" type="hinge" pos="0 0 0" limited="true" axis="1 0 0" damping="0.1" range="-1.5 1.5"/>
+          <joint name="thumbKnuckleJoint2" type="hinge" pos="0 0 0" limited="true" axis="0 0 1" damping="0.1" range="-1.5 1.5"/>
+          <joint name="thumbKnuckleJoint3" type="hinge" pos="0 0 0" limited="true" axis="0 1 0" damping="0.1" range="-1.5 1.5"/>
+
+          <body name="thumbInner" pos="0 1 0">
+
+            <geom name="thumbInnerKnuckle" type="sphere" rgba="0.6 0.6 0.6 1" pos="0 0 0" size="0.3"/>
+            <geom name="thumbInnerKnuckleLimb" type="ellipsoid" size="0.3 0.5 0.3" fromto="0 0 0 0 1 0"/>
+            <joint name="thumbInnerKnuckleJoint1" type="hinge" pos="0 0 0" limited="true" axis="1 0 0" damping="0.1" range="-1.5 1.5"/>
+          </body>
+        </body>
+
+        <body name="index" pos="0.75 2.5 0">
+
+          <geom name="indexKnuckle" type="sphere" rgba="0.6 0.6 0.6 1" pos="0 0 0" size="0.3"/>
+          <geom name="indexKnuckleLimb" type="ellipsoid" size="0.3 0.5 0.3" fromto="0 0 0 0 1 0"/>
+          <joint name="indexKnuckleJoint1" type="hinge" pos="0 0 0" limited="true" axis="1 0 0" damping="0.1" range="-1.5 1.5"/>
+          <joint name="indexKnuckleJoint2" type="hinge" pos="0 0 0" limited="true" axis="0 0 1" damping="0.1" range="-1.5 1.5"/>
+          <joint name="indexKnuckleJoint3" type="hinge" pos="0 0 0" limited="true" axis="0 1 0" damping="0.1" range="-1.5 1.5"/>
+
+          <body name="indexInner" pos="0 1 0">
+
+            <geom name="indexInnerKnuckle" type="sphere" rgba="0.6 0.6 0.6 1" pos="0 0 0" size="0.3"/>
+            <geom name="indexInnerKnuckleLimb" type="ellipsoid" size="0.3 0.5 0.3" fromto="0 0 0 0 1 0"/>
+            <joint name="indexInnerKnuckleJoint1" type="hinge" pos="0 0 0" limited="true" axis="1 0 0" damping="0.1" range="-1.5 1.5"/>
+
+            <body name="indexEnd" pos="0 1 0">
+
+              <geom name="indexEndKnuckle" type="sphere" rgba="0.6 0.6 0.6 1" pos="0 0 0" size="0.3"/>
+              <geom name="indexEndKnuckleLimb" type="ellipsoid" size="0.3 0.5 0.3" fromto="0 0 0 0 1 0"/>
+              <joint name="indexEndKnuckleJoint1" type="hinge" pos="0 0 0" limited="true" axis="1 0 0" damping="0.1" range="-1.5 1.5"/>
+
+            </body>
+
+          </body>
+
+        </body>
+
+        <body name="middle" pos="0 2.8 0">
+
+          <geom name="middleKnuckle" type="sphere" rgba="0.6 0.6 0.6 1" pos="0 0 0" size="0.3"/>
+          <geom name="middleKnuckleLimb" type="ellipsoid" size="0.3 0.5 0.3" fromto="0 0 0 0 1 0"/> 
+          <joint name="middleKnuckleJoint1" type="hinge" pos="0 0 0" limited="true" axis="1 0 0" damping="0.1" range="-1.5 1.5"/>
+          <joint name="middleKnuckleJoint2" type="hinge" pos="0 0 0" limited="true" axis="0 0 1" damping="0.1" range="-1.5 1.5"/>
+          <joint name="middleKnuckleJoint3" type="hinge" pos="0 0 0" limited="true" axis="0 1 0" damping="0.1" range="-1.5 1.5"/>
+
+          <body name="middleInner" pos="0 1 0">
+
+            <geom name="middleInnerKnuckle" type="sphere" rgba="0.6 0.6 0.6 1" pos="0 0 0" size="0.3"/>
+            <geom name="middleInnerKnuckleLimb" type="ellipsoid" size="0.3 0.5 0.3" fromto="0 0 0 0 1 0"/>
+            <joint name="middleInnerKnuckleJoint1" type="hinge" pos="0 0 0" limited="true" axis="1 0 0" damping="0.1" range="-1.5 1.5"/>
+
+            <body name="middleEnd" pos="0 1 0">
+
+              <geom name="middleEndKnuckle" type="sphere" rgba="0.6 0.6 0.6 1" pos="0 0 0" size="0.3"/>
+              <geom name="middleEndKnuckleLimb" type="ellipsoid" size="0.3 0.5 0.3" fromto="0 0 0 0 1 0"/>
+              <joint name="middleEndKnuckleJoint1" type="hinge" pos="0 0 0" limited="true" axis="1 0 0" damping="0.1" range="-1.5 1.5"/>
+
+            </body>
+
+          </body>
+
+        </body>
+
+        <body name="ring" pos="-0.75 2.5 0">
+
+          <geom name="ringKnuckle" type="sphere" rgba="0.6 0.6 0.6 1" pos="0 0 0" size="0.3"/>
+          <geom name="ringKnuckleLimb" type="ellipsoid" size="0.3 0.5 0.3" fromto="0 0 0 0 1 0"/>
+          <joint name="ringKnuckleJoint1" type="hinge" pos="0 0 0" limited="true" axis="1 0 0" damping="0.1" range="-1.5 1.5"/>
+          <joint name="ringKnuckleJoint2" type="hinge" pos="0 0 0" limited="true" axis="0 0 1" damping="0.1" range="-1.5 1.5"/>
+          <joint name="ringKnuckleJoint3" type="hinge" pos="0 0 0" limited="true" axis="0 1 0" damping="0.1" range="-1.5 1.5"/>
+
+          <body name="ringInner" pos="0 1 0">
+
+            <geom name="ringInnerKnuckle" type="sphere" rgba="0.6 0.6 0.6 1" pos="0 0 0" size="0.3"/>
+            <geom name="ringInnerKnuckleLimb" type="ellipsoid" size="0.3 0.5 0.3" fromto="0 0 0 0 1 0"/>
+            <joint name="ringInnerKnuckleJoint1" type="hinge" pos="0 0 0" limited="true" axis="1 0 0" damping="0.1" range="-1.5 1.5"/>
+
+            <body name="ringEnd" pos="0 1 0">
+
+              <geom name="ringEndKnuckle" type="sphere" rgba="0.6 0.6 0.6 1" pos="0 0 0" size="0.3"/>
+              <geom name="ringEndKnuckleLimb" type="ellipsoid" size="0.3 0.5 0.3" fromto="0 0 0 0 1 0"/>
+              <joint name="ringEndKnuckleJoint1" type="hinge" pos="0 0 0" limited="true" axis="1 0 0" damping="0.1" range="-1.5 1.5"/>
+
+            </body>
+          
+          </body>
+
+        </body>
+
+        <body name="pinky" pos="-1.3 1.75 0">
+
+          <geom name="pinkyKnuckle" type="sphere" rgba="0.6 0.6 0.6 1" pos="0 0 0" size="0.3"/>
+          <geom name="pinkyKnuckleLimb" type="ellipsoid" size="0.3 0.5 0.3" fromto="0 0 0 0 0.8 0"/>
+          <joint name="pinkyKnuckleJoint1" type="hinge" pos="0 0 0" limited="true" axis="1 0 0" damping="0.1" range="-1.5 1.5"/>
+          <joint name="pinkyKnuckleJoint2" type="hinge" pos="0 0 0" limited="true" axis="0 0 1" damping="0.1" range="-1.5 1.5"/>
+          <joint name="pinkyKnuckleJoint3" type="hinge" pos="0 0 0" limited="true" axis="0 1 0" damping="0.1" range="-1.5 1.5"/>
+        
+          <body name="pinkyInner" pos="0 0.8 0">
+
+            <geom name="pinkyInnerKnuckle" type="sphere" rgba="0.6 0.6 0.6 1" pos="0 0 0" size="0.3"/>
+            <geom name="pinkyInnerKnuckleLimb" type="ellipsoid" size="0.3 0.5 0.3" fromto="0 0 0 0 0.8 0"/>
+            <joint name="pinkyInnerKnuckleJoint1" type="hinge" pos="0 0 0" limited="true" axis="1 0 0" damping="0.1" range="-1.5 1.5"/>
+
+            <body name="pinkyEnd" pos="0 0.8 0">
+
+              <geom name="pinkyEndKnuckle" type="sphere" rgba="0.6 0.6 0.6 1" pos="0 0 0" size="0.3"/>
+              <geom name="pinkyEndKnuckleLimb" type="ellipsoid" size="0.3 0.5 0.3" fromto="0 0 0 0 0.8 0"/>
+              <joint name="pinkyEndKnuckleJoint1" type="hinge" pos="0 0 0" limited="true" axis="1 0 0" damping="0.1" range="-1.5 1.5"/>
+
+            </body>
+          
+          </body>
+
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <!-- <motor joint="armJoint" ctrlrange="-3.0 3.0" ctrllimited="true" />
+    <motor joint="wrist" ctrlrange="-3.0 3.0" ctrllimited="true" /> -->
+    <motor joint="thumbKnuckleJoint1" ctrlrange="-3.0 3.0" ctrllimited="true" />
+    <motor joint="thumbInnerKnuckleJoint1" ctrlrange="-3.0 3.0" ctrllimited="true" />
+    <motor joint="indexKnuckleJoint1" ctrlrange="-3.0 3.0" ctrllimited="true" />
+    <motor joint="indexInnerKnuckleJoint1" ctrlrange="-3.0 3.0" ctrllimited="true" />
+    <motor joint="indexEndKnuckleJoint1" ctrlrange="-3.0 3.0" ctrllimited="true"/>
+    <motor joint="middleKnuckleJoint1" ctrlrange="-3.0 3.0" ctrllimited="true" />
+    <motor joint="middleInnerKnuckleJoint1" ctrlrange="-3.0 3.0" ctrllimited="true" />
+    <motor joint="middleEndKnuckleJoint1" ctrlrange="-3.0 3.0" ctrllimited="true"/>
+    <motor joint="ringKnuckleJoint1" ctrlrange="-3.0 3.0" ctrllimited="true" />
+    <motor joint="ringInnerKnuckleJoint1" ctrlrange="-3.0 3.0" ctrllimited="true" />
+    <motor joint="ringEndKnuckleJoint1" ctrlrange="-3.0 3.0" ctrllimited="true"/>
+    <motor joint="pinkyKnuckleJoint1" ctrlrange="-3.0 3.0" ctrllimited="true" />
+    <motor joint="pinkyInnerKnuckleJoint1" ctrlrange="-3.0 3.0" ctrllimited="true" />
+    <motor joint="pinkyEndKnuckleJoint1" ctrlrange="-3.0 3.0" ctrllimited="true"/>
+
+
+    <motor joint="thumbKnuckleJoint2" ctrlrange="-3.0 3.0" ctrllimited="true" />
+    <motor joint="indexKnuckleJoint2" ctrlrange="-3.0 3.0" ctrllimited="true" />
+    <motor joint="middleKnuckleJoint2" ctrlrange="-3.0 3.0" ctrllimited="true" />
+    <motor joint="ringKnuckleJoint2" ctrlrange="-3.0 3.0" ctrllimited="true" />
+    <motor joint="pinkyKnuckleJoint2" ctrlrange="-3.0 3.0" ctrllimited="true" />
+
+
+    <motor joint="thumbKnuckleJoint3" ctrlrange="-3.0 3.0" ctrllimited="true" />
+    <motor joint="indexKnuckleJoint3" ctrlrange="-3.0 3.0" ctrllimited="true" />
+    <motor joint="middleKnuckleJoint3" ctrlrange="-3.0 3.0" ctrllimited="true" />
+    <motor joint="ringKnuckleJoint3" ctrlrange="-3.0 3.0" ctrllimited="true" />
+    <motor joint="pinkyKnuckleJoint3" ctrlrange="-3.0 3.0" ctrllimited="true" />
+
+  </actuator>
+
+</mujoco>
